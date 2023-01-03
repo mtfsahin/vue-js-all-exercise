@@ -17,4 +17,29 @@ const app = Vue.createApp({
 
 })
 
-app.mount('#app')
+app.component('friend-contact',{
+    template: `
+        <li>
+        <h2>{{ friend.name }}</h2>
+        <button @click="toogleDetails(friend.id)"  > {{ detailsareVisible ? 'Hide' : 'Show' }} Show Details</button>
+        <ul v-if="detailsareVisible">
+        <li><strong>Phone:</strong> {{friend.phone}}</li>
+        <li><strong>Email:</strong> {{friend.email}}</li>
+        </ul>
+    </li>
+  `,
+    data(){
+        return{
+            detailsareVisible: false,
+            friend: {id: 'mustafa', name: 'Mustafa Şahin', phone:'+90000 000 00 00', email:'contact@mustafasahin.dev'},
+
+        }
+    },
+    methods:{
+        toogleDetails(){
+            this.detailsareVisible = !this.detailsareVisible;
+        }
+    }
+});
+
+app.mount('#app');

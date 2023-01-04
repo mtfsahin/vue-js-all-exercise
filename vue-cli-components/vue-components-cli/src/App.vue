@@ -7,10 +7,12 @@
       <friend-contact
         v-for="friend in friends"
         :key="friend.id"
+        :id="friend.id"
         :name="friend.name"
         :phone-number="friend.phone"
         :email-adress="friend.email"
-        is-favorite="true"
+        :is-favorite="friend.isFavorite"
+        @toogle-favorite="toogleFavoriteStatus"
       />
     </ul>
   </section>
@@ -26,6 +28,7 @@ export default {
           name: "Mustafa",
           phone: "+90 000 000 00 00 ",
           email: "contact@mustafasahin.dev",
+          isFavorite: true,
         },
         {
           id: "mustafa2",
@@ -36,7 +39,12 @@ export default {
       ],
     };
   },
-  methods: {},
+  methods: {
+    toogleFavoriteStatus(friendId){
+        const identifiedFriend = this.friends.find(friend => friend.id === friendId);
+        identifiedFriend.isFavorite = !identifiedFriend.isFavorite
+    }
+  },
   computed: {},
 };
 </script>

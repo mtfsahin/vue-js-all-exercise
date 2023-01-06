@@ -37,6 +37,17 @@ export default {
             default:false,
         }
     },
+    emits: ['toogle-favorite'],
+    // emits:{
+    //     'toogle-favorite': function(id){
+    //         if(id){
+    //             return true;
+    //         }else{
+    //             console.warn("Id eksik")
+    //             return false;
+    //         }
+    //     }
+    // },
     data(){
         return{
             detailsAreVisible: false,

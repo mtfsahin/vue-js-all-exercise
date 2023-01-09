@@ -16,7 +16,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .badge {
   display: inline-block;
   padding: 0.5rem 1rem;

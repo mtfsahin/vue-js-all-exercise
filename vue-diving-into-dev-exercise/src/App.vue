@@ -5,29 +5,31 @@
     <button @click="setSelectedComponent('manage-goals')">Manage Goals</button>
     <!-- <manage-goals v-if="selectedComponent === 'active-goals'"></manage-goals>
     <active-goals v-if="selectedComponent === 'manage-goals'"></active-goals> -->
-    <component :is="selectedComponent"></component>
+    <!-- Komponenti sarmaladı ve verinin önbellekte kalmasını sağladı sayfa yenileninceye kadar, "keep-alive"-->
+    <keep-alive>
+      <component :is="selectedComponent"></component>
+    </keep-alive>
   </div>
 </template>
 
 <script>
 export default {
-  
-  components: {  },
+  components: {},
   data() {
     return {
-      selectedComponent:'active-goals',
+      selectedComponent: "active-goals",
       activeUser: {
-        name: 'Mustafa şahin',
-        description: 'Web site admin',
-        role: 'admin',
+        name: "Mustafa şahin",
+        description: "Web site admin",
+        role: "admin",
       },
     };
   },
-  methods:{
-        setSelectedComponent(cmp){
-          this.selectedComponent  = cmp;
-        }
-      }
+  methods: {
+    setSelectedComponent(cmp) {
+      this.selectedComponent = cmp;
+    },
+  },
 };
 </script>
 

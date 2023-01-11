@@ -3,12 +3,15 @@
     <header>
       <slot name="header"></slot>
     </header>
-    <slot></slot>
+    <slot>
+    </slot>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ['content']
+};
 </script>
 
 <style scoped>

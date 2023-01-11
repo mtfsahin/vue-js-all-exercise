@@ -15,8 +15,8 @@ export default {
   data() {
     return {
       activeUser: {
-        name: 'Maximilian Schwarzmüller',
-        description: 'Site owner and admin',
+        name: 'Mustafa şahin',
+        description: 'Web site admin',
         role: 'admin',
       },
     };
@@ -24,7 +24,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 html {
   font-family: sans-serif;
 }

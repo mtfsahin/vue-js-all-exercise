@@ -1,7 +1,9 @@
 <template>
   <div>
-    <header>
-      <slot name="header"></slot>
+    <header v-if="$slots.header">
+      <slot name="header">
+        <!-- <h2>The default</h2> -->
+      </slot>
     </header>
     <slot>
     </slot>
@@ -10,7 +12,9 @@
 
 <script>
 export default {
-  props: ['content']
+  mounted(){
+    console.log('olustu')
+  }
 };
 </script>
 

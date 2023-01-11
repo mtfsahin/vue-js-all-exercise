@@ -1,6 +1,4 @@
 <template>
-    <section>
-
-    </section>
+    <h2>ManageGoals</h2>
 </template>
 

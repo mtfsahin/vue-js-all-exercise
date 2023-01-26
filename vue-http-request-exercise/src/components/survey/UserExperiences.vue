@@ -6,6 +6,9 @@
         <base-button @click="loadExperiances">Load Submitted Experiences</base-button>
       </div>
       <p v-if=" isLoading">Loading... </p>
+      <p v-else-if="!isLoading && error">{{ error }}</p>
+
+      <p v-else-if="!isLoading && (!results || results.length === 0) ">No stored experiences found.</p>
       <ul v-else>
         <survey-result
           v-for="result in results"
@@ -28,13 +31,15 @@ export default {
   data() {
     return{
       results:[],
-      isLoading: false
+      isLoading: false,
+      error: null
     }
   },
   methods:{
     loadExperiances(){
       this.isLoading = true;
-      fetch('https://vue-http-demp-f8e87-default-rtdb.europe-west1.firebasedatabase.app/surveys.json')
+      this.error = null;
+      fetch('https://vue-http-demp-f8e87-default-rtdb.europe-west1.firebasedatabase.app/')
       .then((response) => {
         if(response.ok){
           return response.json();
@@ -51,7 +56,13 @@ export default {
         });
        }
        this.results = results;
+      })
+      .catch((error) => {
+        console.log(error);
+        this.isLoading = false;
+        this.error = 'Failed to fetch data - please try again later.';
       });
+      
     },
   },
   mounted(){

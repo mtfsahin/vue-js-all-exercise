@@ -16,7 +16,6 @@ export default {
   methods: {
     confirmInput (){
       this.$router.push('/teams');
-
     }
   }
 };

@@ -12,7 +12,11 @@ export default {
   computed: {
     teamMembersLink(){
       return {
-        name: 'team-members', params: {teamId: this.id}
+
+        name: 'team-members', 
+        params: {teamId: this.id},
+        query: {sort: 'asc'},
+     
       };
     }
   }

@@ -22,7 +22,13 @@ const router = createRouter({
                 { path: '/teams/:teamId', name:'team-members', component: TeamMembers, props: true },
             ]
         },
-        { path: '/users', components: {default: UsersList, footer:UsersFooter }},
+        { path: '/users', components: {default: UsersList, footer:UsersFooter },       
+        beforeEnter(to, from, next){
+            console.log('users beforeEnter')
+            console.log(to, from);
+            next()
+        }
+        },
         { path: '/:notFound(.*)', component: NotFound }
     ],
     linkActiveClass: 'active',
